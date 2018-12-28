@@ -6,11 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { LoginPageComponent } from './pages/login-page';
+import { DefaultPageComponent } from './pages/default-page/default-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    DefaultPageComponent
   ],
   imports: [
     BrowserModule,
