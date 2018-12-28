@@ -1,0 +1,33 @@
+@import '~flexboxgrid';
+
+@import '../../styles/fonts';
+@import '../../styles/colors';
+
+.login-app-name {
+  height: 70vh;
+  background: $bg-login-gray;
+  font-size: 25px;
+  align-items: flex-end;
+
+  .travel-planning {
+    font-family: $font-noteworthy;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+}
+
+.login-button-row {
+  height: 30vh;
+
+  .login-button {
+    width: 300px;
+    margin: 30px;
+    color: $white;
+    background: $button-blue;
+    font-size: 20px;
+
+    &:hover {
+      background: $login-button-hover;
+    }
+  }
+}
