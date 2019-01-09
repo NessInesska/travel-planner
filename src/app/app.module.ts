@@ -5,16 +5,18 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { DefaultPageModule } from './pages/default-page/default-page.module';
 import { LoginPageComponent } from './pages/login-page';
-import { DefaultPageComponent } from './pages/default-page/default-page.component';
+import { DefaultPageComponent } from './pages/default-page';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    DefaultPageComponent
+    DefaultPageComponent,
   ],
   imports: [
+    DefaultPageModule,
     BrowserModule,
     RouterModule.forRoot(
       appRoutes
