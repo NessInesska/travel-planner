@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultPageComponent implements OnInit {
 
+  public array = new Array(5);
+
   constructor() { }
 
   ngOnInit() {
