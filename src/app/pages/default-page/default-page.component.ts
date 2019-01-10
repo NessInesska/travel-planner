@@ -9,6 +9,7 @@ import { RoutingService } from '../../services';
 })
 export class DefaultPageComponent {
 
+  //TODO: refactor
   public array = new Array(7);
 
   constructor(private router: RoutingService) { }

@@ -14,6 +14,6 @@ export class RoutingService {
   }
 
   public goToCityDescriptionPage(): Promise<boolean> {
-    return this.router.navigate(['/'])
+    return this.router.navigate(['/city'])
   }
 }
