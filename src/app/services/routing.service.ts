@@ -12,4 +12,8 @@ export class RoutingService {
   public goToDefaultPage(): Promise<boolean> {
     return this.router.navigate(['/default']);
   }
+
+  public goToCityDescriptionPage(): Promise<boolean> {
+    return this.router.navigate(['/'])
+  }
 }
