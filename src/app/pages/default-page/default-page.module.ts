@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material';
 
 import { CityCardComponent } from '../../components/city-card';
 import { HeaderComponent } from '../../components/header';
+import { DefaultPageComponent } from './default-page.component';
 
 @NgModule({
   imports: [
@@ -13,10 +14,12 @@ import { HeaderComponent } from '../../components/header';
   declarations: [
     HeaderComponent,
     CityCardComponent,
+    DefaultPageComponent,
   ],
   exports: [
     HeaderComponent,
     CityCardComponent,
+    DefaultPageComponent,
   ]
 })
 export class DefaultPageModule { }
