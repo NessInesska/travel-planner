@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { RoutingService } from '../../services';
 
 @Component({
   selector: 'app-default-page',
   templateUrl: './default-page.component.html',
   styleUrls: ['./default-page.component.scss']
 })
-export class DefaultPageComponent implements OnInit {
+export class DefaultPageComponent {
 
-  constructor() { }
+  public array = new Array(7);
 
-  ngOnInit() {
+  constructor(private router: RoutingService) { }
+
+  public goToCityDescriptionPage(): void {
+    this.router.goToCityDescriptionPage();
   }
-
 }
