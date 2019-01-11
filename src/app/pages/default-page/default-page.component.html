@@ -1,5 +1,7 @@
 <div class="col-xs center-xs">
-  <div class="row cities">
-    <app-city-card class="box city-cards" *ngFor="let i of array" (click)="goToCityDescriptionPage()"></app-city-card>
-  </div>
+  <div class="row center-xs">
+      <app-city-card class="city-cards"
+                     *ngFor="let i of array"
+                     (click)="goToCityDescriptionPage()"></app-city-card>
+    </div>
 </div>

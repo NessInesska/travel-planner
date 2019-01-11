@@ -1,25 +1,56 @@
 <div class="row center-xs">
-  <div class="col-xs-10 city-description">
+  <div class="col-xs-12 city-description">
     <div class="row center-xs">
-      <div class="col-xs-3">
-        <img class="city-image" src="../../../assets/london.jpg">
-      </div>
-      <div class="col-xs-9">
-        <div class="row center-xs city-description-title"> London</div>
-        <div class="row description-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-        </div>
+      <img class="city-image" src="../../../assets/forest.png">
+      <div class="layout">
+        <mat-icon class="menu-icon">menu</mat-icon>
+        <div class="box middle-xs city-name"> NORWAY</div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-10">
-    <div class="row center-xs place-planning-costs">
-      <!--TODO: refactor ngFor-->
-      <app-place-planning-costs class="place-planning-costs-tile" *ngFor="let i of arr"></app-place-planning-costs>
+
+    <div class="row center-xs place-planning-costs-content">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="About">
+          <ng-template matTabContent class="center-xs">
+            <div class="city-description-text">
+              <div class="center-xs city-description-text-title"> About</div>
+              <!--Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}} <br>-->
+              <mat-divider class="city-description-text-divider"></mat-divider>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+              id
+              est laborum.
+              <mat-divider class="city-description-text-divider"></mat-divider>
+
+              <div class="row middle-xs center-xs">
+                <div class="col-xs-5"><img class="city-description-text-images" src="../../../assets/laptop.png"></div>
+                <div class="col-xs-5"><img class="city-description-text-images" src="../../../assets/mountains.png">
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Hotels">
+          <ng-template matTabContent>
+            Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Food">
+          <ng-template matTabContent>
+            Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
+  <!--<div class="col-xs-10">-->
+  <!--<div class="row center-xs place-planning-costs">-->
+  <!--TODO: refactor ngFor-->
+  <!--<app-place-planning-costs class="place-planning-costs-tile" *ngFor="let i of arr"></app-place-planning-costs>-->
+  <!--</div>-->
+  <!--</div>-->
 </div>

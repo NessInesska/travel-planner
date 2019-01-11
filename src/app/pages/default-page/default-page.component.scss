@@ -1,15 +1,5 @@
 @import '~flexboxgrid';
 
-.cities {
-  justify-content: space-around;
-
-  .city-cards {
-    margin: 20px 10px;
-    width: 25%;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.75);
-  }
-}
-
 @media only screen and (max-width: 650px) {
   .row {
     .city-cards {
@@ -27,6 +17,14 @@
 }
 
 @media only screen and (min-width: 1000px) {
+  .row {
+    .city-cards {
+      width: 40%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1300px) {
   .row {
     .city-cards {
       width: 30%;
