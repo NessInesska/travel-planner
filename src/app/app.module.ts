@@ -7,6 +7,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { DefaultPageModule } from './pages/default-page';
+import { FlightsPlanPageModule } from './pages/flights-plan-page';
 import { LoginPageComponent } from './pages/login-page';
 import { CityDescriptionPageModule } from './pages/city-description-page';
 import { InMemoryDataService } from './services';
@@ -19,6 +20,7 @@ import { InMemoryDataService } from './services';
   imports: [
     DefaultPageModule,
     CityDescriptionPageModule,
+    FlightsPlanPageModule,
     //TODO: create module for login page
     DefaultPageModule,
     BrowserModule,

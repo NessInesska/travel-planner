@@ -1,0 +1,39 @@
+@import '~flexboxgrid';
+@import '../../styles/colors';
+
+.mat-toolbar {
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  .datepickers-wrapper {
+    padding: 50px;
+    color: $white;
+
+    .flights-datepicker {
+      font-weight: 300;
+      font-size: 17px;
+      color: $white;
+
+      .mat-datepicker-toggle {
+        color: $white;
+      }
+    }
+  }
+
+  .city-input {
+    width: 200px;
+    font-weight: 300;
+    font-size: 17px;
+    color: $white;
+  }
+
+  .swap-flight-destinations-button {
+    color: $white;
+
+    &:disabled {
+      color: $bg-login-gray;
+    }
+  }
+}
