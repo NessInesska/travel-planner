@@ -1,4 +1,5 @@
 @import '~flexboxgrid';
+@import '../../styles/colors';
 
 .cities {
   justify-content: space-around;
@@ -6,7 +7,11 @@
   .city-cards {
     margin: 20px 10px;
     width: 25%;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 40px -10px $box-shadow-color;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

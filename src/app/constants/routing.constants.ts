@@ -2,5 +2,6 @@ export const ROUTING_PATHES = {
   CITIES: 'cities',
   CITY: 'city',
   FLIGHTS: 'flights',
-  ACTIONS: 'actions'
+  ACTIONS: 'actions',
+  DEFAULT: 'default'
 };

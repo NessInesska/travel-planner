@@ -1,6 +1,6 @@
 export interface City {
-  id: string,
+  id?: string,
   name: string,
-  description: string,
-  image: string,
+  description?: string,
+  image?: string,
 }

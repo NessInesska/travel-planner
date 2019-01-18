@@ -3,9 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/f
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
-export interface City {
-  name: string;
-}
+import { City } from '../../interfaces';
 
 @Component({
   selector: 'app-flights-plan-page',
@@ -15,7 +13,6 @@ export interface City {
 export class FlightsPlanPageComponent implements OnInit {
 
   //TODO: integration with backend
-
   public value = '';
   public value2 = '';
   public arr = new Array(5);

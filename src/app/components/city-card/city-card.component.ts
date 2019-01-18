@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { City } from '../../interfaces';
 
 @Component({
   selector: 'app-city-card',
   templateUrl: './city-card.component.html',
   styleUrls: ['./city-card.component.scss']
 })
-export class CityCardComponent implements OnInit {
+export class CityCardComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() city: City;
 
 }

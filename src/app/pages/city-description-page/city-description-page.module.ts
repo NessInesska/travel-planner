@@ -6,7 +6,6 @@ import { PlacePlanningCostsComponent } from '../../components/place-planning-cos
 import { CityDescriptionPageComponent } from './city-description-page.component';
 
 @NgModule({
-  //TODO: add needed modules and remove them from app module
   imports: [
     CommonModule,
     MatButtonModule,
