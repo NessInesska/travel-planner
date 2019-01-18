@@ -23,10 +23,6 @@ export class DefaultPageComponent implements OnInit {
     });
   }
 
-  // public goToCityDescriptionPage(city: City): void {
-  //   this.router.goToCityDescriptionPage(city.id);
-  // }
-
   public goToCityDescriptionPage(city: City): void {
     this.citiesService.getCityById(city.id)
       .subscribe(

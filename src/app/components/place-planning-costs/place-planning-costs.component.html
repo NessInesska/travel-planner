@@ -1,6 +1,9 @@
 <div class="row">
-  <img class="place-planning-costs-image" src="../../../assets/london.jpg">
+  <img class="place-planning-costs-image" src="{{action?.image}}">
 </div>
 <div class="row">
-  <button class="place-planning-costs-button" mat-raised-button color="primary" (click)="goToActionsPage('1')"> Planning </button>
+  <button
+    class="place-planning-costs-button"
+    mat-raised-button color="primary"
+    (click)="goToActionsPage(action?.id)"> {{action?.name}} Planning </button>
 </div>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
+import { Action } from '../../interfaces';
 import { RoutingService } from '../../services';
 
 @Component({
@@ -8,6 +9,8 @@ import { RoutingService } from '../../services';
   styleUrls: ['./place-planning-costs.component.scss']
 })
 export class PlacePlanningCostsComponent {
+
+  @Input() action: Action;
 
   constructor(private router: RoutingService){
   }
