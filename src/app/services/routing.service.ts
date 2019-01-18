@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ROUTING_PATHES } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class RoutingService {
     return this.router.navigate(['/default']);
   }
 
-  public goToCityDescriptionPage(): Promise<boolean> {
-    return this.router.navigate(['/city'])
+  public goToCityDescriptionPage(id: string): Promise<boolean> {
+    return this.router.navigate([ROUTING_PATHES.CITY, id])
   }
 }

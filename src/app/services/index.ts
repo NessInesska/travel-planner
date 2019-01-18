@@ -1,2 +1,2 @@
 export * from './routing.service';
-export * from './in-memory-data.service';
+export * from './cities.service';
