@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
+export interface City {
+  name: string;
+}
 
 @Component({
   selector: 'app-flights-plan-page',
@@ -7,13 +14,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightsPlanPageComponent implements OnInit {
 
+  //TODO: integration with backend
+
   public value = '';
   public value2 = '';
+  public arr = new Array(5);
+  public panelOpenState = false;
 
-  constructor() {
+  public myGroup : FormGroup = this.formBuild.group({
+    myControl: new FormControl(),
+    myControl2: new FormControl()
+  });
+
+  public options: City[] = [
+    {name: 'London'},
+    {name: 'Paris'},
+    {name: 'Oslo'}
+  ];
+
+  public filteredOptions: Observable<City[]>;
+
+  constructor(private formBuild: FormBuilder) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
+    this.filteredOptions = (this.myControl.valueChanges || this.myControl2.valueChanges)
+      .pipe(
+        startWith<string | City>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.options.slice())
+      );
+  }
+
+  public get myControl(): AbstractControl {
+    return this.myGroup.controls.myControl;
+  }
+
+  public get myControl2(): AbstractControl {
+    return this.myGroup.controls.myControl2;
   }
 
   public onSwapClick(): void {
@@ -26,4 +64,13 @@ export class FlightsPlanPageComponent implements OnInit {
     }
   }
 
+  public displayFn(user?: City): string | undefined {
+    return user ? user.name : undefined;
+  }
+
+  private _filter(name: string): City[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
 }

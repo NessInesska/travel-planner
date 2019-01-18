@@ -1,0 +1,20 @@
+@import '~flexboxgrid';
+@import '../../styles/colors';
+
+.flight-info-element-wrapper {
+  width: 100%;
+  height: auto;
+  border: 1px solid $bg-login-gray;
+
+  .flight-info-element-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .flight-info-element-content {
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    width: 100%;
+  }
+}

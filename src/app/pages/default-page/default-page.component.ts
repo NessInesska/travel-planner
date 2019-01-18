@@ -25,7 +25,7 @@ export class DefaultPageComponent implements OnInit {
     });
   }
 
-  // public goToCityDescriptionPage(): void {
-  //   this.router.goToCityDescriptionPage(id);
-  // }
+  public goToCityDescriptionPage(id: string): void {
+    this.router.goToCityDescriptionPage(id);
+  }
 }

@@ -5,6 +5,10 @@
 body {
   margin: 0;
   font-family: $font-hiragino-sans-gb;
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
 }
 
 @font-face {

@@ -1,51 +1,102 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row class="center-xs">
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="center-xs">
+        <div *ngIf="!panelOpenState"> Click to select flights</div>
+        <div *ngIf="panelOpenState"> Select the appropriate flight</div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-    <div class="mat-inputs-wrapper">
-      <mat-form-field class="departure city-input">
-        <input matInput type="text" placeholder="Select departure city" [(ngModel)]="value">
-        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+    <div class="flights-picker-wrapper">
+      <mat-toolbar color="primary">
+        <mat-toolbar-row class="center-xs flights-mat-toolbar-row">
 
-      <button class="swap-flight-destinations-button"
-              mat-button matSuffix mat-icon-button
-              [disabled]="!(value2 && value)"
-              (click)="onSwapClick()">
-        <mat-icon>swap_horiz</mat-icon>
-      </button>
+          <div class="mat-inputs-wrapper" [formGroup]="myGroup">
 
-      <mat-form-field class="arrival city-input">
-        <input matInput type="text" placeholder="Select arrival city" [(ngModel)]="value2">
-        <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+              <mat-form-field class="departure city-input">
+                <input
+                  type="text"
+                  placeholder="Select departure city"
+                  matInput
+                  formControlName="myControl"
+                  [(ngModel)]="value"
+                  [matAutocomplete]="auto">
+
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+
+              <button class="swap-flight-destinations-button"
+                      mat-button matSuffix mat-icon-button
+                      [disabled]="!(value2 && value)"
+                      (click)="onSwapClick()">
+                <mat-icon>swap_horiz</mat-icon>
+              </button>
+
+
+              <mat-form-field class="arrival city-input">
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Select arrival city"
+                  formControlName="myControl2"
+                  [matAutocomplete]="auto"
+                  [(ngModel)]="value2">
+
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+
+                <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+          </div>
+
+          <div class="datepickers-wrapper">
+            <mat-form-field class="flights-datepicker">
+              <input matInput [matDatepicker]="picker1" placeholder="Choose departure date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <button class="swap-datepicker-destinations-button"
+                    mat-button matSuffix mat-icon-button
+                    [disabled]="!(value2 && value)"
+                    (click)="onSwapClick()">
+              <mat-icon>swap_horiz</mat-icon>
+            </button>
+
+            <mat-form-field class="flights-datepicker">
+              <input matInput [matDatepicker]="picker2" placeholder="Choose arrival date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+        </mat-toolbar-row>
+      </mat-toolbar>
     </div>
+  </mat-expansion-panel>
+</mat-accordion>
 
-    <div class="datepickers-wrapper">
-      <mat-form-field class="flights-datepicker">
-        <input matInput [matDatepicker]="picker1" placeholder="Choose departure date">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker1></mat-datepicker>
-      </mat-form-field>
+<div class="row">
+  <div class="col-xs-5 flight-info-wrapper">
+    <app-flight-info class="flight-info-element" *ngFor="let i of arr"></app-flight-info>
+  </div>
 
-      <button class="swap-datepicker-destinations-button"
-              mat-button matSuffix mat-icon-button
-              [disabled]="!(value2 && value)"
-              (click)="onSwapClick()">
-        <mat-icon>swap_horiz</mat-icon>
-      </button>
-
-      <mat-form-field class="flights-datepicker">
-        <input matInput [matDatepicker]="picker2" placeholder="Choose arrival date">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker2></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-  </mat-toolbar-row>
-</mat-toolbar>
-
-
+  <div class="col-xs-6 flight-final-details-wrapper">
+    <app-flight-final-details class="flight-final-details-element"></app-flight-final-details>
+  </div>
+</div>
