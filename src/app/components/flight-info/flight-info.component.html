@@ -3,17 +3,29 @@
     <div class="row">
       <div class="col-xs-5">
         <img class="flight-info-element-image"
-             src="../../../assets/plane.jpg"
-             alt="Photo of a Shiba Inu">
+             src="{{flight.logo}}">
       </div>
       <div class="col-xs flight-info-element-content">
         <mat-card-content>
-          <mat-card-title>Moscow - London</mat-card-title>
-          <mat-card-subtitle>14.02.2019</mat-card-subtitle>
-          <p>
-            Flight details Flight details Flight details Flight details
-          </p>
+          <mat-card-title>{{flight?.departure}} - {{flight?.arrival}}</mat-card-title>
+          <div class="flight-info-content-text">
+            <mat-card-subtitle> {{FLIGHT_DETAILS_MESSAGES?.DEPARTURE_DATE}} {{flight?.departureDate}}</mat-card-subtitle>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.COMPANY}} {{flight?.company}}.</div>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.TRANSFER}} {{flight?.transfer}}.</div>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.CLASS}} {{flight?.travelClass}}.</div>
+          </div>
         </mat-card-content>
+      </div>
+    </div>
+    <div class="row flight-info-price-and-button">
+      <div class="col-xs-5 center-xs flight-info-price">
+        {{FLIGHT_DETAILS_MESSAGES?.PRICE}} {{flight?.price | currency}}
+      </div>
+
+      <div class="mat-card-button">
+        <button mat-raised-button color="primary" class="buy-flight-button">
+          {{FLIGHT_DETAILS_MESSAGES?.SELECT}}
+        </button>
       </div>
     </div>
   </mat-card>

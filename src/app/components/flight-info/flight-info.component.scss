@@ -1,5 +1,6 @@
 @import '~flexboxgrid';
 @import '../../styles/colors';
+@import '../../styles/theme';
 
 .flight-info-element-wrapper {
   width: 100%;
@@ -14,7 +15,45 @@
   .flight-info-element-content {
     display: flex;
     justify-content: center;
-    text-align: justify;
     width: 100%;
+
+    .mat-card-content {
+      width: 100%;
+      margin: 0;
+
+      .mat-card-subtitle {
+        margin: 0;
+      }
+
+      .flight-info-content-text {
+        justify-content: left;
+        text-align: left;
+        font-size: 17px;
+        align-content: center;
+
+        > * {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+
+  .flight-info-price-and-button {
+    justify-content: space-between;
+    align-items: center;
+
+    .flight-info-price {
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .mat-card-button {
+      padding: 10px;
+
+      .buy-flight-button {
+        width: 100px;
+      }
+    }
   }
 }
+

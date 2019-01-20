@@ -9,7 +9,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatNativeDateModule, MatOptionModule,
+  MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +36,7 @@ import { FlightFinalDetailsComponent } from '../../components/flight-final-detai
     MatOptionModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [
     FlightsPlanPageComponent,
