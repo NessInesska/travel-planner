@@ -1,8 +1,9 @@
 @import '~flexboxgrid';
+@import '../../styles/colors';
 
 .city-description {
   width: 80%;
-  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.87);
+  box-shadow: 0 0 40px -10px $city-description-shadow;
   margin-top: 20px;
 
   .col-xs-3 {
@@ -32,6 +33,6 @@
 
   .place-planning-costs-tile {
     width: 30%;
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 40px -10px $box-shadow-color;
   }
 }

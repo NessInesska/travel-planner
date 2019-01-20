@@ -8,20 +8,19 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { DefaultPageModule } from './pages/default-page';
 import { FlightsPlanPageModule } from './pages/flights-plan-page';
-import { LoginPageComponent } from './pages/login-page';
+import { LoginPageModule } from './pages/login-page';
 import { CityDescriptionPageModule } from './pages/city-description-page';
 import { CitiesService } from './services';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
   ],
   imports: [
     DefaultPageModule,
     CityDescriptionPageModule,
     FlightsPlanPageModule,
-    //TODO: create module for login page
+    LoginPageModule,
     DefaultPageModule,
     BrowserModule,
     RouterModule.forRoot(

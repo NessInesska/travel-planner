@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { City } from '../../interfaces/city.interface';
+import { ActivatedRoute } from '@angular/router';
 
-import { CitiesService } from '../../services';
+import { City, Action } from '../../interfaces';
+import { ActionsService, CitiesService } from '../../services';
 
 @Component({
   selector: 'app-city-description-page',
@@ -10,15 +11,22 @@ import { CitiesService } from '../../services';
 })
 export class CityDescriptionPageComponent implements OnInit {
 
-  //TODO: refactor
-  public arr = new Array(3);
   public city: City;
+  public actions: Action[];
 
-  constructor(private cityService: CitiesService) { }
+  constructor(private citiesService: CitiesService,
+              private route: ActivatedRoute,
+              private actionsService: ActionsService) {
+  }
 
   public ngOnInit(): void {
+    let id = this.route.snapshot.params['id'];
 
-
-    // this.cityService.getCityById('1').subscribe(city =>  this.city = city);
+    this.citiesService.getCityById(id).subscribe(res => this.city = res);
+    this.actionsService.getActions()
+      .subscribe(res => {
+        this.actions = res;
+        console.log(res);
+      });
   }
 }

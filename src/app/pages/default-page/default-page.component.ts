@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { City } from '../../interfaces/city.interface';
 
+import { City } from '../../interfaces';
 import { CitiesService, RoutingService } from '../../services';
 
 @Component({
@@ -10,9 +10,7 @@ import { CitiesService, RoutingService } from '../../services';
 })
 export class DefaultPageComponent implements OnInit {
 
-  //TODO: refactor
-  public array = new Array(7);
-  public res;
+  public cities;
 
   constructor(private router: RoutingService,
               private citiesService: CitiesService) {
@@ -20,12 +18,18 @@ export class DefaultPageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.citiesService.getCities().subscribe((res: City[]) => {
-      this.res = res;
-      console.log(this.res);
+      this.cities = res;
+      console.log(this.cities);
     });
   }
 
-  public goToCityDescriptionPage(id: string): void {
-    this.router.goToCityDescriptionPage(id);
+  public goToCityDescriptionPage(city: City): void {
+    this.citiesService.getCityById(city.id)
+      .subscribe(
+        res => {
+          this.citiesService.city = res;
+          this.router.goToCityDescriptionPage(city.id);
+        });
   }
+
 }
