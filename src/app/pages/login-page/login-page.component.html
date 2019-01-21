@@ -6,6 +6,8 @@
 </div>
 <div class="row login-button-row">
   <div class="col-xs center-xs">
-    <button mat-button class="login-button" (click)="goToDefaultPage()"> {{messages.LOGIN}}</button>
+    <!--<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>-->
+    <!--<button mat-button class="login-button" (click)="goToDefaultPage()"> {{messages.LOGIN}}</button>-->
+    <button mat-button class="login-button" (click)="onGoogleSignInSuccess()"> Log In </button>
   </div>
 </div>
