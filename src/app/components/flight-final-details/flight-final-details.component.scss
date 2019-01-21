@@ -1,4 +1,10 @@
+@import '~flexboxgrid';
+
 .example-header-image {
   background-image: url("../../../assets/plane.jpg");
   background-size: cover;
+}
+
+.no-flights-selected {
+  padding: 20px;
 }

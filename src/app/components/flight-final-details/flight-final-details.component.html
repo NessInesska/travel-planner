@@ -1,17 +1,23 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Preliminary</mat-card-title>
-    <mat-card-title>Moscow-London</mat-card-title>
-    <mat-card-subtitle>14.02.2019</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      Flight details
-      Flight details
-      Flight details
-      Flight details
-    </p>
-  </mat-card-content>
-  <mat-card-title>Total: $1325</mat-card-title>
+  <div class="row center-xs">
+    <mat-card-title>Preliminary info for your flights</mat-card-title>
+  </div>
+  <div class="row center-xs no-flights-selected" *ngIf="selectedFlights.length === 0">
+    No flights selected
+  </div>
+
+  <div class="row center-xs each-flight-final-details" *ngIf="selectedFlights.length > 0">
+    <div class="col-xs">
+      <div class="row">
+        <div class="col-xs-11">
+          <app-each-flight-final-details
+            *ngFor="let selectedFlight of selectedFlights"
+            [selectedFlight]="selectedFlight"></app-each-flight-final-details>
+        </div>
+      </div>
+      <div class="row">
+        <mat-card-title>Total: </mat-card-title>
+      </div>
+    </div>
+  </div>
 </mat-card>
