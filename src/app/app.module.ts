@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { DefaultPageModule } from './pages/default-page';
 import { FlightsPlanPageModule } from './pages/flights-plan-page';
+import { FoodPlanPageModule } from './pages/food-plan-page';
 import { LoginPageModule } from './pages/login-page';
 import { CityDescriptionPageModule } from './pages/city-description-page';
 import { CitiesService } from './services';
@@ -22,6 +23,7 @@ import { CitiesService } from './services';
     FlightsPlanPageModule,
     LoginPageModule,
     DefaultPageModule,
+    FoodPlanPageModule,
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,

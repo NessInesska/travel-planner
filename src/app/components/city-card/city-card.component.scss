@@ -1,7 +1,14 @@
 :host {
   padding: 15px;
 
-  .city-image {
-    width: 100%;
+  .city-card-content-wrapper {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .city-image {
+      width: 100%;
+    }
   }
 }

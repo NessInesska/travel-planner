@@ -1,0 +1,50 @@
+<div class="row center-xs">
+  <div class="col-xs-12 city-description">
+    <div class="row center-xs">
+      <img class="city-image" src="{{currentCity?.image}}">
+      <div class="layout">
+        <div class="box middle-xs city-name"> {{currentCity?.name}}</div>
+      </div>
+    </div>
+    <div class="row center-xs place-planning-costs-content">
+
+      <div class="col-xs-12 city-description-text">
+        <div class="center-xs city-description-text-title"> Food planning</div>
+        <mat-divider class="city-description-text-divider"></mat-divider>
+        <div class="row center-xs">
+
+          <mat-form-field>
+            <mat-select placeholder="Meal type">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Choose price category">
+              <mat-option *ngFor="let prices of priceCategory" [value]="prices.value">
+                {{prices.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Number of people">
+              <mat-option *ngFor="let person of people" [value]="person.value">
+                {{person.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-divider class="city-description-text-divider"></mat-divider>
+
+        <div class="row center-xs">
+          <button mat-raised-button color="primary" class="calculate-food-price-button">
+            Calculate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
