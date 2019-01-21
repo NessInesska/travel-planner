@@ -16,4 +16,8 @@ export class FlightsService {
   public getFlights(): Observable<Flight[]> {
     return this.http.get<Flight[]>(`${ENDPOINTS.FLIGHTS}`);
   }
+
+  public getFlightById(id: string): Observable<Flight> {
+    return this.http.get<Flight>(`${ENDPOINTS.FLIGHTS}/${id}`)
+  }
 }

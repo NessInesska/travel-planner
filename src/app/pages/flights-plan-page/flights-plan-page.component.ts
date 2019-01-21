@@ -47,11 +47,10 @@ export class FlightsPlanPageComponent implements OnInit {
   public NOTHING_FOUND = NOTHING_FOUND;
 
   public isLoading = false;
-  public isVisible = false;
 
-  public flights$: BehaviorSubject<Flight[]> = new BehaviorSubject<Flight[]>([]);
-  public filteredFlights$: BehaviorSubject<Flight[]> = new BehaviorSubject<Flight[]>([]);
-
+  // public SearchString = '';
+  public selectedFlight: Flight;
+  public selectedFlights: Flight[] = [];
 
   constructor(private formBuild: FormBuilder,
               private flightsService: FlightsService) {
@@ -75,13 +74,10 @@ export class FlightsPlanPageComponent implements OnInit {
       );
 
     this.flightsService.getFlights()
-      .subscribe(
-        (res: Flight[]) => {
-          this.flights$.next(res);
-          this.isLoading = false;
-
-          this.setFilters();
-        });
+      .subscribe((res: Flight[]) => {
+        this.flights = res;
+        this.isLoading = false;
+      });
   }
 
   public get departureCity(): AbstractControl {
@@ -107,36 +103,43 @@ export class FlightsPlanPageComponent implements OnInit {
     return user ? user.name : undefined;
   }
 
+  public selectFlight(id: string): void {
+    this.flightsService.getFlightById(id).subscribe((res: Flight) => {
+      this.selectedFlight = res;
+      this.selectedFlights.push(res);
+    });
+  }
+
   //filters for auto suggestions
   private _filter(name: string): City[] {
     const filterValue = name.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  private setFilters(): void {
-    this.filteredFlights$.next(this.flights$.value);
-
-    combineLatest(
-      this.flights$,
-      this.departureCity.valueChanges,
-      this.arrivalCity.valueChanges,
-    ).subscribe(([flightsArray,
-                   departure,
-                   arrival]) => {
-      let filteredFlights = [...flightsArray];
-
-      if (departure) {
-        filteredFlights = filteredFlights.filter(product => product.departure === departure);
-      }
-
-      if (arrival) {
-        filteredFlights = filteredFlights.filter(product => product.arrival === arrival);
-      }
-
-      this.filteredFlights$.next(filteredFlights);
-    });
-
-    this.departureCity.reset();
-    this.arrivalCity.reset();
-  }
+  // private setFilters(): void {
+  //   this.filteredFlights$.next(this.flights$.value);
+  //
+  //   combineLatest(
+  //     this.flights$,
+  //     this.departureCity.valueChanges,
+  //     this.arrivalCity.valueChanges,
+  //   ).subscribe(([flightsArray,
+  //                  departure,
+  //                  arrival]) => {
+  //     let filteredFlights = [...flightsArray];
+  //
+  //     if (departure) {
+  //       filteredFlights = filteredFlights.filter(product => product.departure === departure);
+  //     }
+  //
+  //     if (arrival) {
+  //       filteredFlights = filteredFlights.filter(product => product.arrival === arrival);
+  //     }
+  //
+  //     this.filteredFlights$.next(filteredFlights);
+  //   });
+  //
+  //   this.departureCity.reset();
+  //   this.arrivalCity.reset();
+  // }
 }

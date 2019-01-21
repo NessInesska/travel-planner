@@ -1,0 +1,26 @@
+<div class="flight-info-element-wrapper">
+  <div class="example-card">
+    <div class="row">
+      <div class="col-xs-5">
+        <img class="flight-info-element-image"
+             src="{{selectedFlight?.logo}}">
+      </div>
+      <div class="col-xs flight-info-element-content">
+        <mat-card-content>
+          <mat-card-title>{{selectedFlight?.departure}} - {{selectedFlight?.arrival}}</mat-card-title>
+          <div class="flight-info-content-text">
+            <mat-card-subtitle> {{FLIGHT_DETAILS_MESSAGES?.DEPARTURE_DATE}} {{selectedFlight?.departureDate}}</mat-card-subtitle>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.COMPANY}} {{selectedFlight?.company}}.</div>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.TRANSFER}} {{selectedFlight?.transfer}}.</div>
+            <div> {{FLIGHT_DETAILS_MESSAGES?.CLASS}} {{selectedFlight?.travelClass}}.</div>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+    <div class="row flight-info-price-and-button">
+      <div class="col-xs-5 center-xs flight-info-price">
+        {{FLIGHT_DETAILS_MESSAGES?.PRICE}} {{selectedFlight?.price | currency}}
+      </div>
+    </div>
+  </div>
+</div>

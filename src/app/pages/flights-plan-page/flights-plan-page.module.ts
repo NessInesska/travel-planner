@@ -13,6 +13,8 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EachFlightFinalDetailsComponent } from '../../components/each-flight-final-details/each-flight-final-details.component';
+import { SearchPipe } from '../../pipes/search.pipe';
 
 import { FlightsPlanPageComponent } from './flights-plan-page.component';
 import { FlightInfoComponent } from '../../components/flight-info';
@@ -42,11 +44,14 @@ import { FlightFinalDetailsComponent } from '../../components/flight-final-detai
     FlightsPlanPageComponent,
     FlightInfoComponent,
     FlightFinalDetailsComponent,
+    EachFlightFinalDetailsComponent,
+    SearchPipe,
   ],
   exports: [
     FlightsPlanPageComponent,
     FlightInfoComponent,
     FlightFinalDetailsComponent,
+    EachFlightFinalDetailsComponent,
   ]
 })
 export class FlightsPlanPageModule {
