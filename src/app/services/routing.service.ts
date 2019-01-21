@@ -19,7 +19,7 @@ export class RoutingService {
     return this.router.navigate([ROUTING_PATHES.CITY, id])
   }
 
-  public goToActionsPage(id: string): Promise<boolean> {
-    return this.router.navigate([ROUTING_PATHES.ACTIONS, id])
+  public goToActionsPage(cityId: string, actionId): Promise<boolean> {
+    return this.router.navigate([ROUTING_PATHES.CITY, cityId, ROUTING_PATHES.ACTIONS, actionId])
   }
 }

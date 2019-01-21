@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 import { City, Flight } from '../../interfaces';
@@ -48,16 +49,27 @@ export class FlightsPlanPageComponent implements OnInit {
 
   public isLoading = false;
 
-  // public SearchString = '';
   public selectedFlight: Flight;
   public selectedFlights: Flight[] = [];
 
+  public cityId = this.route.snapshot.params['id'];
+  public flightsForCurrentCity: Flight[] = [];
+
   constructor(private formBuild: FormBuilder,
-              private flightsService: FlightsService) {
+              private flightsService: FlightsService,
+              private route: ActivatedRoute) {
   }
 
   public ngOnInit(): void {
     this.isLoading = true;
+
+    this.flightsService.getFlightsByCity(this.cityId).subscribe(
+      (res: Flight[]) => {
+        this.flightsForCurrentCity = res;
+        console.log(res);
+      }
+    );
+
     //Logic for auto suggestions
     this.filteredOptions = this.departureCity.valueChanges
       .pipe(
@@ -79,6 +91,7 @@ export class FlightsPlanPageComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
 
   public get departureCity(): AbstractControl {
     return this.citiesInputs.controls.departureCity;
@@ -115,31 +128,4 @@ export class FlightsPlanPageComponent implements OnInit {
     const filterValue = name.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
-
-  // private setFilters(): void {
-  //   this.filteredFlights$.next(this.flights$.value);
-  //
-  //   combineLatest(
-  //     this.flights$,
-  //     this.departureCity.valueChanges,
-  //     this.arrivalCity.valueChanges,
-  //   ).subscribe(([flightsArray,
-  //                  departure,
-  //                  arrival]) => {
-  //     let filteredFlights = [...flightsArray];
-  //
-  //     if (departure) {
-  //       filteredFlights = filteredFlights.filter(product => product.departure === departure);
-  //     }
-  //
-  //     if (arrival) {
-  //       filteredFlights = filteredFlights.filter(product => product.arrival === arrival);
-  //     }
-  //
-  //     this.filteredFlights$.next(filteredFlights);
-  //   });
-  //
-  //   this.departureCity.reset();
-  //   this.arrivalCity.reset();
-  // }
 }

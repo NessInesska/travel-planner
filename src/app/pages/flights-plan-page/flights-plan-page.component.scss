@@ -2,7 +2,6 @@
 @import '../../styles/colors';
 
 .flights-picker-wrapper {
-  //height: 90vh;
   background: $blue;
   flex-direction: column;
 
@@ -13,8 +12,20 @@
       flex-wrap: wrap;
     }
 
-    @media only screen and (max-width: 550px) {
+    @media only screen and (max-width: 500px) {
       flex-wrap: wrap;
+      height: 400px;
+
+      .mat-form-field{
+        min-width: 200px;
+        justify-content: center;
+      }
+
+      .datepickers-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
 
     .mat-toolbar {
@@ -62,13 +73,28 @@
       }
     }
   }
-  //
-  //.search_flights_button {
-  //  width: 250px;
-  //  padding: 5px;
-  //  font-size: 25px;
-  //  font-weight: 300;
-  //}
+}
+
+.flights-plan-page-columns {
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+
+  @media only screen and (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+
+    .flight-final-details-wrapper {
+      min-width: 300px;
+    }
+
+    .flight-info-wrapper {
+      justify-content: center;
+      width: 90%;
+      flex-wrap: wrap;
+      margin: 0;
+      min-width: 270px;
+    }
+  }
 }
 
 .flight-info-wrapper {
@@ -81,6 +107,7 @@
 
 .flight-final-details-wrapper {
   margin: 45px 0;
+  padding: 0 20px;
 }
 
 .spinner {
