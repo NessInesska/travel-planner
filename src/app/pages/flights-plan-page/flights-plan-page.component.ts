@@ -16,8 +16,8 @@ import { FLIGHTS_PAGE_FILTER_MESSAGES, NOTHING_FOUND } from '../../constants/mes
 export class FlightsPlanPageComponent implements OnInit {
 
   //TODO: integration with backend
-  public value = '';
-  public value2 = '';
+  public departureCityValue = '';
+  public arrivalCityValue = '';
 
   public flights: Flight[];
 
@@ -104,10 +104,10 @@ export class FlightsPlanPageComponent implements OnInit {
   public onSwapClick(): void {
     let tmp;
 
-    if (this.value && this.value2) {
-      tmp = this.value;
-      this.value = this.value2;
-      this.value2 = tmp;
+    if (this.departureCityValue && this.arrivalCityValue) {
+      tmp = this.departureCityValue;
+      this.departureCityValue = this.arrivalCityValue;
+      this.arrivalCityValue = tmp;
     }
   }
 

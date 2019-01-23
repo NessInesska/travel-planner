@@ -3,5 +3,6 @@ export const ROUTING_PATHES = {
   CITY: 'city',
   FLIGHTS: 'flights',
   ACTIONS: 'actions',
-  DEFAULT: 'default'
+  DEFAULT: 'default',
+  LOGIN: 'login'
 };
