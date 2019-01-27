@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Flight } from '../../interfaces';
 
 @Component({
@@ -9,5 +10,6 @@ import { Flight } from '../../interfaces';
 export class FlightFinalDetailsComponent {
 
   @Input() selectedFlights: Flight[];
+  @Input() totalPrice: number;
 
 }

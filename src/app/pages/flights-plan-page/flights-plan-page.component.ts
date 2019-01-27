@@ -23,7 +23,8 @@ export class FlightsPlanPageComponent implements OnInit {
 
   public citiesInputs: FormGroup = this.formBuild.group({
     departureCity: new FormControl(),
-    arrivalCity: new FormControl()
+    arrivalCity: new FormControl(),
+    availabilityFilter: new FormControl()
   });
 
   //TODO: integration with backend
@@ -41,6 +42,14 @@ export class FlightsPlanPageComponent implements OnInit {
     {name: 'Warsaw'}
   ];
 
+  public numberOfPeople = [
+    {number: 1},
+    {number: 2},
+    {number: 3},
+    {number: 4},
+    {number: 5},
+  ];
+
   public filteredOptions: Observable<City[]>;
   public filteredOptions2: Observable<City[]>;
 
@@ -54,6 +63,8 @@ export class FlightsPlanPageComponent implements OnInit {
 
   public cityId = this.route.snapshot.params['id'];
   public flightsForCurrentCity: Flight[] = [];
+
+  public totalPrice: number = 0;
 
   constructor(private formBuild: FormBuilder,
               private flightsService: FlightsService,
@@ -101,6 +112,10 @@ export class FlightsPlanPageComponent implements OnInit {
     return this.citiesInputs.controls.arrivalCity;
   }
 
+  public get availability(): AbstractControl {
+    return this.citiesInputs.controls.availabilityFilter;
+  }
+
   public onSwapClick(): void {
     let tmp;
 
@@ -120,6 +135,7 @@ export class FlightsPlanPageComponent implements OnInit {
     this.flightsService.getFlightById(id).subscribe((res: Flight) => {
       this.selectedFlight = res;
       this.selectedFlights.push(res);
+      this.totalPrice += this.selectedFlight.price;
     });
   }
 

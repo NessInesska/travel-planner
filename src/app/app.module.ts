@@ -27,6 +27,7 @@ import { CitiesService } from './services';
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
+      // {enableTracing: true}
     ),
     MatButtonModule,
     HttpClientModule,

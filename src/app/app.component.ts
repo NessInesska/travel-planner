@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ROUTING_PATHES } from './constants';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  public loginRoute = 'http://localhost:4200/login';
-  title = 'travel-planner';
+  public loginRoute: string = ROUTING_PATHES.LOGIN;
 
-  constructor(public router: Router){}
+  constructor(public router: Router){
+    console.log(this.loginRoute);
+  }
 }

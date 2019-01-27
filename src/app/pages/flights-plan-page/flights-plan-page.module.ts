@@ -4,12 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule,
-  MatDatepickerModule, MatExpansionModule,
+  MatCardModule, MatCheckboxModule,
+  MatDatepickerModule, MatDividerModule, MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule,
+  MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule, MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +39,8 @@ import { FlightFinalDetailsComponent } from '../../components/flight-final-detai
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   declarations: [
     FlightsPlanPageComponent,
