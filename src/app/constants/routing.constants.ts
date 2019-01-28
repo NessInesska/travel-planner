@@ -3,5 +3,10 @@ export const ROUTING_PATHES = {
   CITY: 'city',
   FLIGHTS: 'flights',
   ACTIONS: 'actions',
-  DEFAULT: 'default'
+  DEFAULT: 'default',
+  LOGIN: 'login'
+};
+
+export const LOCALHOST = {
+  BASE_URL: 'http://localhost:4200'
 };

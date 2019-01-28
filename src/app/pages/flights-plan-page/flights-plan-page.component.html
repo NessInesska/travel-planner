@@ -1,16 +1,17 @@
 <div class="row center-xs middle-xs flights-picker-wrapper">
   <div class="row flights-picker">
     <mat-toolbar class="toolbar">
-      <mat-toolbar-row class="center-xs flights-mat-toolbar-row">
 
-        <div class="mat-inputs-wrapper" [formGroup]="citiesInputs">
+      <div class="mat-inputs-wrapper row" [formGroup]="citiesInputs">
+
+        <mat-toolbar-row class="row center-xs flights-mat-toolbar-row">
           <mat-form-field class="departure city-input">
             <input
               type="text"
               placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_DEPARTURE_CITY}}"
               matInput
               formControlName="departureCity"
-              [(ngModel)]="value"
+              [(ngModel)]="departureCityValue"
               [matAutocomplete]="auto">
 
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
@@ -19,14 +20,19 @@
               </mat-option>
             </mat-autocomplete>
 
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button
+              mat-button
+              *ngIf="departureCityValue"
+              matSuffix mat-icon-button
+              aria-label="Clear"
+              (click)="departureCityValue=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
 
           <button class="swap-flight-destinations-button"
                   mat-button matSuffix mat-icon-button
-                  [disabled]="!(value2 && value)"
+                  [disabled]="!(arrivalCityValue && departureCityValue)"
                   (click)="onSwapClick()">
             <mat-icon>swap_horiz</mat-icon>
           </button>
@@ -38,7 +44,7 @@
               placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_ARRIVAL_CITY}}"
               formControlName="arrivalCity"
               [matAutocomplete]="auto2"
-              [(ngModel)]="value2">
+              [(ngModel)]="arrivalCityValue">
 
             <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option2 of filteredOptions2 | async" [value]="option2">
@@ -46,48 +52,72 @@
               </mat-option>
             </mat-autocomplete>
 
-            <button mat-button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+            <button
+              mat-button
+              *ngIf="arrivalCityValue"
+              matSuffix mat-icon-button
+              aria-label="Clear"
+              (click)="arrivalCityValue=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
-        </div>
 
-        <div class="datepickers-wrapper">
-          <mat-form-field class="flights-datepicker">
-            <input matInput
-                   [matDatepicker]="picker1"
-                   disabled
-                   placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_DEPARTURE_DATE}}">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #picker1 disabled="false"></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field class="flights-datepicker">
-            <input matInput
-                   [matDatepicker]="picker2"
-                   disabled
-                   placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_ARRIVAL_DATE}}">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #picker2 disabled="false"></mat-datepicker>
-          </mat-form-field>
-        </div>
+          <div class="datepickers-wrapper">
+            <mat-form-field class="flights-datepicker">
+              <input matInput
+                     [matDatepicker]="picker1"
+                     disabled
+                     placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_DEPARTURE_DATE}}">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker1 disabled="false"></mat-datepicker>
+            </mat-form-field>
 
-      </mat-toolbar-row>
+            <mat-form-field class="flights-datepicker">
+              <input matInput
+                     [matDatepicker]="picker2"
+                     disabled
+                     placeholder="{{FLIGHTS_PAGE_FILTER_MESSAGES?.SELECT_ARRIVAL_DATE}}">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker2 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="row center-xs middle-xs">
+          <mat-checkbox
+            class="availability-checkbox"
+            color="accent"
+            formControlName="availabilityFilter"> Available only
+          </mat-checkbox>
+
+          <mat-form-field>
+            <mat-select placeholder="People" panelClass="select-number-of-people" class="select-number-of-people">
+              <mat-option *ngFor="let number of numberOfPeople" [value]="number.number">
+                {{number.number}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-toolbar-row>
+
+      </div>
     </mat-toolbar>
   </div>
 </div>
 
 <div class="row flights-plan-page-columns" *ngIf="!isLoading">
   <div class="col-xs-5 flight-final-details-wrapper"
-       *ngIf="!isLoading && (flights.length !== 0)
-         || !isLoading && (flights | search: value||value2).length !== 0">
-    <app-flight-final-details class="flight-final-details-element" [selectedFlights]="selectedFlights"></app-flight-final-details>
+       *ngIf="!isLoading && selectedFlights.length !== 0">
+    <app-flight-final-details class="flight-final-details-element"
+                              [totalPrice]="totalPrice"
+                              [selectedFlights]="selectedFlights"></app-flight-final-details>
   </div>
 
   <div class="col-xs-5 flight-info-wrapper">
     <app-flight-info
       [flight]="flight"
       class="flight-info-element"
-      *ngFor="let flight of (flights | search: value)" (selectedFlight)="selectFlight($event)"></app-flight-info>
+      *ngFor="let flight of flights | search: departureCityValue : arrivalCityValue"
+      (selectedFlight)="selectFlight($event)"></app-flight-info>
   </div>
 </div>
 
@@ -96,7 +126,7 @@
 </div>
 
 <div class="row center-xs middle-xs sorry-nothing-is-found"
-     *ngIf="!isLoading && (flights.length === 0)
-         || !isLoading && (flights | search: value||value2).length === 0">
+     *ngIf="!isLoading && ((flights.length === 0)
+         ||  (flights | search: departureCityValue : arrivalCityValue).length === 0)">
   {{NOTHING_FOUND.SORRY}}
 </div>

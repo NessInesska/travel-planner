@@ -16,7 +16,7 @@
       flex-wrap: wrap;
       height: 400px;
 
-      .mat-form-field{
+      .mat-form-field {
         min-width: 200px;
         justify-content: center;
       }
@@ -31,48 +31,61 @@
     .mat-toolbar {
       padding: 30px;
       background: $blue;
+      height: fit-content;
 
-      .flights-mat-toolbar-row {
-        flex-wrap: wrap;
+      .flights-datepicker {
+        font-weight: 300;
+        font-size: 17px;
+        color: $white;
+        padding: 10px;
 
-        .mat-inputs-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .datepickers-wrapper {
-
-          .flights-datepicker {
-            font-weight: 300;
-            font-size: 17px;
-            color: $white;
-            padding: 10px;
-
-            .mat-datepicker-toggle {
-              color: $white;
-            }
-          }
-        }
-
-        .city-input {
-          width: 200px;
-          font-weight: 300;
-          font-size: 17px;
+        .mat-datepicker-toggle {
           color: $white;
         }
+      }
 
-        .swap-flight-destinations-button {
-          color: $white;
+      .city-input {
+        width: 200px;
+        font-weight: 300;
+        font-size: 17px;
+        color: $white;
+      }
 
-          &:disabled {
-            color: $bg-login-gray;
-          }
+      .swap-flight-destinations-button {
+        color: $white;
+
+        &:disabled {
+          color: $bg-login-gray;
+        }
+      }
+
+      .select-number-of-people {
+        color: $white;
+        font-size: 17px;
+        font-weight: 300;
+
+        .mat-form-field-wrapper {
+          color: white;
         }
       }
     }
+
+    .availability-checkbox {
+      color: $white;
+      font-weight: 300;
+      font-size: 17px;
+      padding: 0 20px;
+    }
+
+    .mat-form-field-wrapper {
+      color: $white;
+
+      .select-number-of-people {
+        color: $white;
+      }
+    }
   }
+
 }
 
 .flights-plan-page-columns {

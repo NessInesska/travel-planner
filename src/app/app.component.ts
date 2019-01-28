@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { ROUTING_PATHES } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'travel-planner';
+
+  public loginRoute: string = ROUTING_PATHES.LOGIN;
+
+  constructor(public router: Router){
+    console.log(this.loginRoute);
+  }
 }
