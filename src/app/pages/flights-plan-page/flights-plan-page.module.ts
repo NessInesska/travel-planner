@@ -36,7 +36,6 @@ import { FlightFinalDetailsComponent } from '../../components/flight-final-detai
     MatExpansionModule,
     MatAutocompleteModule,
     MatOptionModule,
-    FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,

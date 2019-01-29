@@ -1,0 +1,86 @@
+<div class="col-xs-12 city-description">
+  <div class="row center-xs">
+    <img class="city-image" src="{{currentCity?.image}}">
+    <div class="layout">
+      <div class="box middle-xs city-name"> {{currentCity?.name}}</div>
+    </div>
+  </div>
+
+  <div class="place-planning-costs-content city-description-text">
+    <div class="row center-xs city-description-text-title"> Hotels planning</div>
+
+    <mat-divider class="city-description-text-divider"></mat-divider>
+    <p class="row center-xs"> Here you can calculate the total amount of money you will need to stay in selected
+      hotel.</p>
+    <mat-divider class="city-description-text-divider"></mat-divider>
+
+    <div class="row">
+      <div class="col-xs-6 start-xs hotel-finder-wrapper">
+        <div class="row center-xs">
+          <mat-form-field class="hotels-selector">
+            <mat-select placeholder="Hotel name">
+              <mat-option *ngFor="let hotel of hotels" [value]="hotel.name">
+                {{hotel.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row center-xs">
+          <mat-form-field>
+            <input
+              matInput
+              readonly
+              [min]="today"
+              [matDatepicker]="picker"
+              placeholder="Check-in">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              readonly
+              [min]="today"
+              [matDatepicker]="picker2"
+              placeholder="Check-out">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <mat-divider class="city-description-text-divider"></mat-divider>
+        </div>
+
+        <div class="row center-xs">
+          <mat-form-field>
+            <mat-select placeholder="Adults">
+              <mat-option *ngFor="let adult of adults" [value]="adult.number">
+                {{adult.number}} adults
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Rooms">
+              <mat-option *ngFor="let adult of adults" [value]="adult.number">
+                {{adult.number}} rooms
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row center-xs">
+          <button mat-raised-button color="primary" class="calculate-button">
+            Calculate
+          </button>
+          <button mat-raised-button color="primary" class="calculate-button">
+            Find hotel
+          </button>
+        </div>
+      </div>
+
+      <div class="col-xs-6 recommended-hotels">
+        <div class="box">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

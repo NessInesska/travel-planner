@@ -8,4 +8,5 @@ export const ENDPOINTS = {
   CITIES: `${BASE_URL}${API_PREFIX}/cities`,
   ACTIONS: `${BASE_URL}${API_PREFIX}/actions`,
   FLIGHTS: `${BASE_URL}${API_PREFIX}/flights`,
+  HOTELS: `${BASE_URL}${API_PREFIX}/hotels`,
 };

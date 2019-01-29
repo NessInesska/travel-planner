@@ -6,7 +6,3 @@ export const ROUTING_PATHES = {
   DEFAULT: 'default',
   LOGIN: 'login'
 };
-
-export const LOCALHOST = {
-  BASE_URL: 'http://localhost:4200'
-};
