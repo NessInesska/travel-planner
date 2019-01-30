@@ -11,6 +11,7 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PlanningPagesHeaderModule } from '../../components/planning-pages-header';
 import { FoodPlanPageComponent } from './food-plan-page.component';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FoodPlanPageComponent } from './food-plan-page.component';
     MatFormFieldModule,
     FormsModule,
     MatSelectModule,
+    PlanningPagesHeaderModule,
   ],
   declarations: [
     FoodPlanPageComponent,

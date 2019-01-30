@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatDatepickerModule,
   MatDividerModule,
   MatFormFieldModule,
@@ -14,6 +14,10 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { EachFlightFinalDetailsModule } from '../../components/each-flight-final-details';
+import { FlightFinalDetailsModule } from '../../components/flight-final-details';
+import { HotelCardComponent } from '../../components/hotel-card';
+import { PlanningPagesHeaderModule } from '../../components/planning-pages-header';
 import { HotelsPageComponent } from './hotels-page.component';
 
 @NgModule({
@@ -34,12 +38,18 @@ import { HotelsPageComponent } from './hotels-page.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    PlanningPagesHeaderModule,
+    EachFlightFinalDetailsModule,
+    FlightFinalDetailsModule,
+    MatCardModule,
   ],
   declarations: [
     HotelsPageComponent,
+    HotelCardComponent,
   ],
   exports: [
     HotelsPageComponent,
+    HotelCardComponent,
   ]
 })
 export class HotelsPageModule {

@@ -1,64 +1,54 @@
 @import '~flexboxgrid';
 @import '../../styles/colors';
 
-.col-xs-12 {
-  margin-top: 0;
-
-  .city-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-}
-
-.city-description {
-  color: $white;
-  font-size: 40px;
-
-  .layout {
-    background: $grey-bg-transparent;
-    width: 100%;
-    height: 300px;
-    position: absolute;
-
-    .city-name {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+:host {
+  .col-xs-12 {
+    margin-top: 0;
   }
 
-  .place-planning-costs-content {
-    font-size: 20px;
-    color: $black;
+  .city-description {
+    color: $white;
+    font-size: 40px;
 
-    .mat-form-field {
-      padding: 0 20px;
-      width: 200px;
-      font-size: 17px;
-    }
+    .place-planning-costs-content {
+      font-size: 20px;
+      color: $black;
 
-    .hotels-selector {
-      width: 450px;
-    }
+      .mat-form-field {
+        padding: 0 20px;
+        width: 200px;
+        font-size: 17px;
+      }
 
-    .calculate-button {
-      width: 200px;
-      margin: 0 20px;
-    }
+      .hotels-selector {
+        width: 450px;
+      }
 
-    .city-description-text-title {
-      font-size: 30px;
-      margin: 20px;
-    }
+      .calculate-button {
+        width: 200px;
+        margin: 0 20px;
+      }
 
-    .city-description-text-divider {
-      margin: 20px 0;
-    }
+      .city-description-text-title {
+        font-size: 30px;
+        margin: 20px;
+      }
 
-    .hotel-finder-wrapper {
-      margin-bottom: 50px;
+      .city-description-text-divider {
+        margin: 20px 0;
+      }
+
+      .hotel-finder-wrapper {
+        margin-bottom: 50px;
+      }
+
+      .hotel-card-wrapper {
+        display: flex;
+      }
+
+      .total-card-wrapper {
+        width: 80%;
+      }
     }
   }
 }

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ENDPOINTS } from '../constants';
 
+import { ENDPOINTS } from '../constants';
 import { Hotel } from '../interfaces/hotel';
 
 @Injectable({
@@ -17,7 +17,11 @@ export class HotelsService {
     return this.http.get<Hotel[]>(`${ENDPOINTS.HOTELS}`);
   }
 
-  public getHotelById(id: string): Observable<Hotel> {
-    return this.http.get<Hotel>(`${ENDPOINTS.HOTELS}/${id}`);
+  public getHotelsByCityId(cityId: string): Observable<Hotel[]> {
+    return this.http.get<Hotel[]>(`${ENDPOINTS.HOTELS}/${cityId}`);
+  }
+
+  public getAdultsNumbers(): Observable<number[]> {
+    return this.http.get<number[]>(`${ENDPOINTS.ADULTS}`);
   }
 }

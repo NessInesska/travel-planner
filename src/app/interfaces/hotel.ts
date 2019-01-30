@@ -4,5 +4,6 @@ export interface Hotel {
   email: string,
   location: string,
   city: string,
-  priceForNight: number
+  priceForNight: number,
+  image: string
 }

@@ -59,33 +59,20 @@
         }
       }
 
-      .select-number-of-people {
+      .mat-form-field {
         color: $white;
         font-size: 17px;
         font-weight: 300;
-
-        .mat-form-field-wrapper {
-          color: white;
-        }
       }
-    }
 
-    .availability-checkbox {
-      color: $white;
-      font-weight: 300;
-      font-size: 17px;
-      padding: 0 20px;
-    }
-
-    .mat-form-field-wrapper {
-      color: $white;
-
-      .select-number-of-people {
+      .mat-checkbox {
         color: $white;
+        font-weight: 300;
+        font-size: 17px;
+        padding: 0 20px;
       }
     }
   }
-
 }
 
 .flights-plan-page-columns {
