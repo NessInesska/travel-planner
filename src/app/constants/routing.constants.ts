@@ -6,3 +6,8 @@ export const ROUTING_PATHES = {
   DEFAULT: 'default',
   LOGIN: 'login'
 };
+
+
+export const ROUTING_PATH_PARAMS = {
+  ID: 'id'
+};

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material';
 import { EachFlightFinalDetailsModule } from '../each-flight-final-details';
 
-import { FlightFinalDetailsComponent } from './flight-final-details.component';
+import { TotalPriceCounterComponent } from './total-price-counter.component';
 
 @NgModule({
   imports: [
@@ -12,10 +12,10 @@ import { FlightFinalDetailsComponent } from './flight-final-details.component';
     EachFlightFinalDetailsModule,
   ],
   declarations: [
-    FlightFinalDetailsComponent,
+    TotalPriceCounterComponent,
   ],
   exports: [
-    FlightFinalDetailsComponent,
+    TotalPriceCounterComponent,
   ]
 })
-export class FlightFinalDetailsModule { }
+export class TotalPriceCounterModule { }

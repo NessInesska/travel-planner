@@ -15,7 +15,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EachFlightFinalDetailsModule } from '../../components/each-flight-final-details';
-import { FlightFinalDetailsModule } from '../../components/flight-final-details';
+import { TotalPriceCounterModule } from '../../components/total-price-counter';
 import { HotelCardComponent } from '../../components/hotel-card';
 import { PlanningPagesHeaderModule } from '../../components/planning-pages-header';
 import { HotelsPageComponent } from './hotels-page.component';
@@ -40,7 +40,7 @@ import { HotelsPageComponent } from './hotels-page.component';
     MatInputModule,
     PlanningPagesHeaderModule,
     EachFlightFinalDetailsModule,
-    FlightFinalDetailsModule,
+    TotalPriceCounterModule,
     MatCardModule,
   ],
   declarations: [

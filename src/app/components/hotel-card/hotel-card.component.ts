@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Hotel } from '../../interfaces/hotel';
+import { Hotel } from '../../interfaces';
 
 @Component({
   selector: 'app-hotel-card',

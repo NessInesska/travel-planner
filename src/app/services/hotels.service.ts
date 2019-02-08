@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ENDPOINTS } from '../constants';
-import { Hotel } from '../interfaces/hotel';
+import { Hotel } from '../interfaces/hotel.interface';
 
 @Injectable({
   providedIn: 'root'

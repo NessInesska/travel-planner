@@ -24,7 +24,7 @@ import { FlightsPlanPageComponent } from './flights-plan-page.component';
 import {
   EachFlightFinalDetailsModule,
   FlightInfoComponent,
-  FlightFinalDetailsModule,
+  TotalPriceCounterModule,
 } from '../../components';
 
 @NgModule({
@@ -47,7 +47,7 @@ import {
     MatProgressSpinnerModule,
     MatCheckboxModule,
     MatSelectModule,
-    FlightFinalDetailsModule,
+    TotalPriceCounterModule,
     EachFlightFinalDetailsModule,
   ],
   declarations: [

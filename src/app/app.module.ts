@@ -13,12 +13,10 @@ import { HotelsPageModule } from './pages/hotels-page';
 import { LoginPageModule } from './pages/login-page';
 import { CityDescriptionPageModule } from './pages/city-description-page';
 import { CitiesService } from './services';
-import { HotelsFilterComponent } from './components/hotels-filter';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HotelsFilterComponent,
   ],
   imports: [
     DefaultPageModule,
@@ -31,7 +29,6 @@ import { HotelsFilterComponent } from './components/hotels-filter';
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
-      // {enableTracing: true}
     ),
     MatButtonModule,
     HttpClientModule,
