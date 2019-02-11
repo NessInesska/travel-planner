@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule, MatCardModule,
   MatDatepickerModule,
@@ -30,7 +30,6 @@ import { HotelsPageComponent } from './hotels-page.component';
     MatIconModule,
     MatOptionModule,
     MatFormFieldModule,
-    FormsModule,
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,

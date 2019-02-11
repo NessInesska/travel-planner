@@ -27,6 +27,10 @@
       .calculate-button {
         width: 200px;
         margin: 0 20px;
+
+        &:disabled {
+          background: $bg-login-gray;
+        }
       }
 
       .city-description-text-title {
