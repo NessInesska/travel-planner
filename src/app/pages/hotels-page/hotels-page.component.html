@@ -2,10 +2,10 @@
   <app-planning-pages-header [currentCity]="currentCity"></app-planning-pages-header>
 
   <div class="place-planning-costs-content city-description-text">
-    <div class="row center-xs city-description-text-title"> {{HOTEL_PLANNING_MESSAGES.HOTELS_PLANNING}}</div>
+    <div class="row center-xs city-description-text-title"> {{HOTEL_PLANNING_MESSAGES?.HOTELS_PLANNING}}</div>
 
     <mat-divider class="city-description-text-divider"></mat-divider>
-    <p class="row center-xs"> {{HOTEL_PLANNING_MESSAGES.HERE_YOU_CAN_CALCULATE}}</p>
+    <p class="row center-xs"> {{HOTEL_PLANNING_MESSAGES?.HERE_YOU_CAN_CALCULATE}}</p>
     <mat-divider class="city-description-text-divider"></mat-divider>
 
     <div class="row center-xs hotel-finder-and-total">
@@ -15,8 +15,8 @@
           <div class="row center-xs">
             <mat-form-field class="hotels-selector">
               <mat-select
-                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS.HOTEL_NAME}}"
-                [formControlName]="HOTEL_FORM_CONTROLS.CURRENT_HOTEL_SELECTOR">
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.HOTEL_NAME}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.CURRENT_HOTEL_SELECTOR">
                 <mat-option
                   *ngFor="let hotel of currentCityHotels"
                   [value]="hotel?.id">
@@ -33,8 +33,8 @@
                 readonly
                 [min]="today"
                 [matDatepicker]="picker"
-                [formControlName]="HOTEL_FORM_CONTROLS.CHECK_IN_DATE_PICKER"
-                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS.CHECK_IN}}">
+                [formControlName]="HOTEL_FORM_CONTROLS?.CHECK_IN_DATE_PICKER"
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.CHECK_IN}}">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -43,8 +43,8 @@
                 matInput
                 readonly
                 [matDatepicker]="picker2"
-                [formControlName]="HOTEL_FORM_CONTROLS.CHECK_OUT_DATE_PICKER"
-                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS.CHECK_OUT}}">
+                [formControlName]="HOTEL_FORM_CONTROLS?.CHECK_OUT_DATE_PICKER"
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.CHECK_OUT}}">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
@@ -54,19 +54,19 @@
           <div class="row center-xs">
             <mat-form-field>
               <mat-select
-                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS.ADULTS}}"
-                [formControlName]="HOTEL_FORM_CONTROLS.NUMBER_OF_ADULTS_SELECTOR">
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.ADULTS}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.NUMBER_OF_ADULTS_SELECTOR">
                 <mat-option *ngFor="let number of arrayOfNumbers" [value]="number">
-                  {{number}} {{HOTEL_PLANNING_MESSAGES.ADULTS}}
+                  {{number}} {{HOTEL_PLANNING_MESSAGES?.ADULTS}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field>
               <mat-select
-                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS.ROOMS}}"
-                [formControlName]="HOTEL_FORM_CONTROLS.NUMBER_OF_ROOMS_SELECTOR">
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.ROOMS}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.NUMBER_OF_ROOMS_SELECTOR">
                 <mat-option *ngFor="let number of arrayOfNumbers" [value]="number">
-                  {{number}} {{HOTEL_PLANNING_MESSAGES.ROOMS}}
+                  {{number}} {{HOTEL_PLANNING_MESSAGES?.ROOMS}}
                 </mat-option>
               </mat-select>
             </mat-form-field>

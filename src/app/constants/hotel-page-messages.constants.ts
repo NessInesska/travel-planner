@@ -15,3 +15,7 @@ export const HOTEL_PLANNING_PLACEHOLDERS = {
   ROOMS: 'Rooms',
 };
 
+export const HOTEL_CARD_MESSAGES = {
+  EMAIL: 'E-mail: ',
+  PRICE_FOR_ONE_NIGHT: 'Price for 1 night: ',
+};

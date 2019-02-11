@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Hotel } from '../../interfaces';
+import { HOTEL_CARD_MESSAGES } from '../../constants';
 
 @Component({
   selector: 'app-hotel-card',
@@ -10,5 +11,7 @@ import { Hotel } from '../../interfaces';
 export class HotelCardComponent {
 
   @Input() hotel: Hotel;
+
+  public HOTEL_CARD_MESSAGES = HOTEL_CARD_MESSAGES;
 
 }

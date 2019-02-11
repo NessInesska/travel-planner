@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
-import { ROUTING_PATH_PARAMS, HOTEL_FORM_CONTROLS, TIME, HOTEL_PLANNING_MESSAGES, HOTEL_PLANNING_PLACEHOLDERS } from '../../constants';
+import {
+  ROUTING_PATH_PARAMS,
+  HOTEL_FORM_CONTROLS,
+  TIME,
+  HOTEL_PLANNING_MESSAGES,
+  HOTEL_PLANNING_PLACEHOLDERS
+} from '../../constants';
 import { City, Hotel } from '../../interfaces';
 import { CitiesService, HotelsService } from '../../services';
 
@@ -21,6 +27,7 @@ export class HotelsPageComponent implements OnInit {
   public arrayOfNumbers = [];
   public selectedHotel: Hotel;
   public totalPrice: number;
+  public selectedHotelPriceForNight: number;
 
   public today = new Date();
   public dateDifference: number;
@@ -38,7 +45,8 @@ export class HotelsPageComponent implements OnInit {
       ['', {validators: [Validators.required, Validators.min(+this.today)]}],
     [HOTEL_FORM_CONTROLS.NUMBER_OF_ADULTS_SELECTOR]:
       ['', {validators: [Validators.required]}],
-    [HOTEL_FORM_CONTROLS.NUMBER_OF_ROOMS_SELECTOR]: new FormControl(),
+    [HOTEL_FORM_CONTROLS.NUMBER_OF_ROOMS_SELECTOR]:
+      ['', {validators: [Validators.required]}]
   });
 
   constructor(private router: ActivatedRoute,
@@ -62,11 +70,21 @@ export class HotelsPageComponent implements OnInit {
   }
 
   public calculateHotelTotalPrice(): void {
-    if (this.hotelPriceCounterForm.valid) {
+    let selectedHotelId = this.currentHotelSelectorValue.value;
 
+    if (this.hotelPriceCounterForm.valid) {
       if (this.currentHotelSelectorValue.valueChanges) {
         this.currentCityHotels.filter(hotel => hotel.id === this.currentHotelSelectorValue.value);
         this.calculateDateDifference();
+
+        this.hotelsService.getHotelById(selectedHotelId).subscribe((h: Hotel) => {
+          this.selectedHotelPriceForNight = h[0].priceForNight;
+
+          if (!this.numberOfRoomsSelector) {
+            this.totalPrice = this.selectedHotelPriceForNight * this.dateDifference * this.numberOfAdultsSelector.value;
+          }
+          this.totalPrice = this.selectedHotelPriceForNight * this.dateDifference * this.numberOfAdultsSelector.value * this.numberOfRoomsSelector.value;
+        });
       }
     }
   }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { City } from '../../interfaces';
 import { CitiesService } from '../../services';
+import { FOOD_PAGE_MESSAGES } from '../../constants';
 
 @Component({
   selector: 'app-food-plan-page',
@@ -10,6 +11,8 @@ import { CitiesService } from '../../services';
   styleUrls: ['./food-plan-page.component.scss']
 })
 export class FoodPlanPageComponent implements OnInit {
+
+  public FOOD_PAGE_MESSAGES = FOOD_PAGE_MESSAGES;
 
   public foods = [
     {value: 'steak-0', viewValue: 'Breakfast'},

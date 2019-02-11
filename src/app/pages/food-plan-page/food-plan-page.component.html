@@ -1,11 +1,9 @@
 <div class="row center-xs">
   <div class="col-xs-12 city-description">
     <app-planning-pages-header [currentCity]="currentCity"></app-planning-pages-header>
-
     <div class="row center-xs place-planning-costs-content">
-
       <div class="col-xs-12 city-description-text">
-        <div class="center-xs city-description-text-title"> Food planning</div>
+        <div class="center-xs city-description-text-title"> {{FOOD_PAGE_MESSAGES?.FOOD_PLANNING}}</div>
         <mat-divider class="city-description-text-divider"></mat-divider>
         <div class="row center-xs">
 
@@ -37,7 +35,7 @@
 
         <div class="row center-xs">
           <button mat-raised-button color="primary" class="calculate-food-price-button">
-            Calculate
+            {{FOOD_PAGE_MESSAGES?.CALCULATE}}
           </button>
         </div>
       </div>

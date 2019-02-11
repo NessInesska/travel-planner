@@ -5,7 +5,7 @@
   </mat-card-header>
   <img class="hotel-card-image" src="{{hotel?.image}}">
   <mat-card-content>
-    <div class="hotel-card-details"> E-mail: {{hotel?.email}} </div>
-    <mat-card-title> Price for 1 night: {{hotel?.priceForNight | currency}} </mat-card-title>
+    <div class="hotel-card-details"> {{HOTEL_CARD_MESSAGES?.EMAIL}} {{hotel?.email}} </div>
+    <mat-card-title> {{HOTEL_CARD_MESSAGES?.PRICE_FOR_ONE_NIGHT}} {{hotel?.priceForNight | currency}} </mat-card-title>
   </mat-card-content>
 </mat-card>

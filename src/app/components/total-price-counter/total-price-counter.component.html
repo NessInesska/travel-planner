@@ -10,12 +10,12 @@
       <div class="row">
         <div class="col-xs-12">
           <app-each-flight-final-details
-            *ngFor="let selectedFlight of selectedItems"
-            [selectedFlight]="selectedFlight"></app-each-flight-final-details>
+            *ngFor="let selectedItem of selectedItems"
+            [selectedFlight]="selectedItem"></app-each-flight-final-details>
         </div>
       </div>
       <div class="row">
-        <mat-card-title class="mat-card-total-price">Total: {{totalPrice}}</mat-card-title>
+        <mat-card-title class="mat-card-total-price">Total: {{totalPrice | currency}}</mat-card-title>
       </div>
     </div>
   </div>
