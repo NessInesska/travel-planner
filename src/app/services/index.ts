@@ -3,3 +3,4 @@ export * from './cities.service';
 export * from './flights.service';
 export * from './routing.service';
 export * from './hotels.service';
+export * from './food.service';

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
-  MatOptionModule, MatSelectModule,
+  MatOptionModule,
+  MatSelectModule,
   MatTabsModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +27,8 @@ import { FoodPlanPageComponent } from './food-plan-page.component';
     MatFormFieldModule,
     FormsModule,
     MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     PlanningPagesHeaderModule,
   ],
   declarations: [

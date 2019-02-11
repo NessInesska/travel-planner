@@ -9,34 +9,50 @@
         <mat-divider class="city-description-text-divider"></mat-divider>
         <div class="row center-xs">
 
-          <mat-form-field>
-            <mat-select placeholder="Meal type">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <form [formGroup]="foodCounterForm">
+            <mat-form-field>
+              <mat-select
+                placeholder="Meal type"
+                [formControlName]="FOOD_FORM_CONTROLS?.MEAL_TYPE_SELECTOR">
+                <mat-option
+                  required
+                  *ngFor="let meal of meals"
+                  [value]="meal?.mealTypeId">
+                  {{meal?.mealType}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-          <mat-form-field>
-            <mat-select placeholder="Choose price category">
-              <mat-option *ngFor="let prices of priceCategory" [value]="prices.value">
-                {{prices.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+            <mat-form-field>
+              <mat-select
+                placeholder="Choose price category"
+                [formControlName]="FOOD_FORM_CONTROLS?.MEAL_PRICE_LEVEL_SELECTOR">
+                <mat-option
+                  *ngFor="let prices of priceCategory"
+                  [value]="prices?.value">
+                  {{prices?.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-          <mat-form-field>
-            <mat-select placeholder="Number of people">
-              <mat-option *ngFor="let person of people" [value]="person.value">
-                {{person.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+            <mat-form-field>
+              <mat-select
+                placeholder="Number of people"
+                [formControlName]="FOOD_FORM_CONTROLS?.MEAL_NUMBER_OF_PEOPLE">
+                <mat-option
+                  *ngFor="let person of people"
+                  [value]="person?.value">
+                  {{person?.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
         </div>
         <mat-divider class="city-description-text-divider"></mat-divider>
 
         <div class="row center-xs">
-          <button mat-raised-button color="primary" class="calculate-food-price-button">
+          <button mat-raised-button color="primary" class="calculate-food-price-button"
+                  (click)="calculateTotalPrice()">
             Calculate
           </button>
         </div>
