@@ -42,14 +42,6 @@ export class FlightsPlanPageComponent implements OnInit {
     {name: 'Warsaw'}
   ];
 
-  public numberOfPeople = [
-    {number: 1},
-    {number: 2},
-    {number: 3},
-    {number: 4},
-    {number: 5},
-  ];
-
   public filteredOptions: Observable<City[]>;
   public filteredOptions2: Observable<City[]>;
 
@@ -102,7 +94,6 @@ export class FlightsPlanPageComponent implements OnInit {
         this.isLoading = false;
       });
   }
-
 
   public get departureCity(): AbstractControl {
     return this.citiesInputs.controls.departureCity;
