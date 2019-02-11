@@ -107,9 +107,9 @@
 <div class="row flights-plan-page-columns" *ngIf="!isLoading">
   <div class="col-xs-5 flight-final-details-wrapper"
        *ngIf="!isLoading && selectedFlights.length !== 0">
-    <app-flight-final-details class="flight-final-details-element"
-                              [totalPrice]="totalPrice"
-                              [selectedFlights]="selectedFlights"></app-flight-final-details>
+    <app-total-price-counter class="flight-final-details-element"
+                             [totalPrice]="totalPrice"
+                             [selectedItems]="selectedFlights"></app-total-price-counter>
   </div>
 
   <div class="col-xs-5 flight-info-wrapper">

@@ -9,6 +9,7 @@ import { appRoutes } from './app.routes';
 import { DefaultPageModule } from './pages/default-page';
 import { FlightsPlanPageModule } from './pages/flights-plan-page';
 import { FoodPlanPageModule } from './pages/food-plan-page';
+import { HotelsPageModule } from './pages/hotels-page';
 import { LoginPageModule } from './pages/login-page';
 import { CityDescriptionPageModule } from './pages/city-description-page';
 import { CitiesService } from './services';
@@ -24,10 +25,10 @@ import { CitiesService } from './services';
     LoginPageModule,
     DefaultPageModule,
     FoodPlanPageModule,
+    HotelsPageModule,
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
-      // {enableTracing: true}
     ),
     MatButtonModule,
     HttpClientModule,
@@ -37,6 +38,6 @@ import { CitiesService } from './services';
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
 })
 export class AppModule { }

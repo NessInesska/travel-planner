@@ -1,0 +1,20 @@
+:host {
+  padding: 15px;
+
+  .example-card {
+    max-width: 400px;
+
+    .mat-card {
+      padding: 0;
+    }
+
+    .hotel-card-image {
+      width: 100%;
+    }
+
+    .hotel-card-details {
+      font-size: 17px;
+      margin: 15px;
+    }
+  }
+}

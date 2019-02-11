@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{hotel?.name}}</mat-card-title>
+    <mat-card-subtitle>{{hotel?.location}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="hotel-card-image" src="{{hotel?.image}}">
+  <mat-card-content>
+    <div class="hotel-card-details"> {{HOTEL_CARD_MESSAGES?.EMAIL}} {{hotel?.email}} </div>
+    <mat-card-title> {{HOTEL_CARD_MESSAGES?.PRICE_FOR_ONE_NIGHT}} {{hotel?.priceForNight | currency}} </mat-card-title>
+  </mat-card-content>
+</mat-card>

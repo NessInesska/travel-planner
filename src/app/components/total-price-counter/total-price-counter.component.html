@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+  <div class="row center-xs">
+    <mat-card-title>Preliminary info for total price</mat-card-title>
+  </div>
+  <div class="row center-xs no-flights-selected" *ngIf="!selectedItems">
+    No hotels selected
+  </div>
+  <div class="row center-xs each-flight-final-details">
+    <div class="col-xs">
+      <div class="row">
+        <div class="col-xs-12">
+          <app-each-flight-final-details
+            *ngFor="let selectedItem of selectedItems"
+            [selectedFlight]="selectedItem"></app-each-flight-final-details>
+        </div>
+      </div>
+      <div class="row">
+        <mat-card-title class="mat-card-total-price">Total: {{totalPrice | currency}}</mat-card-title>
+      </div>
+    </div>
+  </div>
+</mat-card>

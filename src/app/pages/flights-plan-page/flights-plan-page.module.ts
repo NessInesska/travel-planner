@@ -4,21 +4,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule,
-  MatDatepickerModule, MatDividerModule, MatExpansionModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule, MatSelectModule,
+  MatNativeDateModule,
+  MatOptionModule,
+  MatProgressSpinnerModule,
+  MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EachFlightFinalDetailsComponent } from '../../components/each-flight-final-details/each-flight-final-details.component';
-import { SearchPipe } from '../../pipes/search.pipe';
 
+import { SearchPipe } from '../../pipes/search.pipe';
 import { FlightsPlanPageComponent } from './flights-plan-page.component';
-import { FlightInfoComponent } from '../../components/flight-info';
-import { FlightFinalDetailsComponent } from '../../components/flight-final-details';
+import {
+  EachFlightFinalDetailsModule,
+  FlightInfoComponent,
+  TotalPriceCounterModule,
+} from '../../components';
 
 @NgModule({
   imports: [
@@ -36,24 +43,21 @@ import { FlightFinalDetailsComponent } from '../../components/flight-final-detai
     MatExpansionModule,
     MatAutocompleteModule,
     MatOptionModule,
-    FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
     MatSelectModule,
+    TotalPriceCounterModule,
+    EachFlightFinalDetailsModule,
   ],
   declarations: [
     FlightsPlanPageComponent,
-    FlightInfoComponent,
-    FlightFinalDetailsComponent,
-    EachFlightFinalDetailsComponent,
     SearchPipe,
+    FlightInfoComponent,
   ],
   exports: [
     FlightsPlanPageComponent,
     FlightInfoComponent,
-    FlightFinalDetailsComponent,
-    EachFlightFinalDetailsComponent,
   ]
 })
 export class FlightsPlanPageModule {

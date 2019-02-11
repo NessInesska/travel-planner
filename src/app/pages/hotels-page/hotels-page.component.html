@@ -1,0 +1,105 @@
+<div class="col-xs-12 city-description">
+  <app-planning-pages-header [currentCity]="currentCity"></app-planning-pages-header>
+
+  <div class="place-planning-costs-content city-description-text">
+    <div class="row center-xs city-description-text-title"> {{HOTEL_PLANNING_MESSAGES?.HOTELS_PLANNING}}</div>
+
+    <mat-divider class="city-description-text-divider"></mat-divider>
+    <p class="row center-xs"> {{HOTEL_PLANNING_MESSAGES?.HERE_YOU_CAN_CALCULATE}}</p>
+    <mat-divider class="city-description-text-divider"></mat-divider>
+
+    <div class="row center-xs hotel-finder-and-total">
+      <div class="col-xs-6 hotel-finder-wrapper">
+        <form [formGroup]="hotelPriceCounterForm">
+
+          <div class="row center-xs">
+            <mat-form-field class="hotels-selector">
+              <mat-select
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.HOTEL_NAME}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.CURRENT_HOTEL_SELECTOR">
+                <mat-option
+                  *ngFor="let hotel of currentCityHotels"
+                  [value]="hotel?.id">
+                  {{hotel?.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="row center-xs">
+            <mat-form-field>
+              <input
+                matInput
+                readonly
+                [min]="today"
+                [matDatepicker]="picker"
+                [formControlName]="HOTEL_FORM_CONTROLS?.CHECK_IN_DATE_PICKER"
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.CHECK_IN}}">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                readonly
+                [matDatepicker]="picker2"
+                [formControlName]="HOTEL_FORM_CONTROLS?.CHECK_OUT_DATE_PICKER"
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.CHECK_OUT}}">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-divider class="city-description-text-divider"></mat-divider>
+          </div>
+
+          <div class="row center-xs">
+            <mat-form-field>
+              <mat-select
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.ADULTS}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.NUMBER_OF_ADULTS_SELECTOR">
+                <mat-option *ngFor="let number of arrayOfNumbers" [value]="number">
+                  {{number}} {{HOTEL_PLANNING_MESSAGES?.ADULTS}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select
+                placeholder="{{HOTEL_PLANNING_PLACEHOLDERS?.ROOMS}}"
+                [formControlName]="HOTEL_FORM_CONTROLS?.NUMBER_OF_ROOMS_SELECTOR">
+                <mat-option *ngFor="let number of arrayOfNumbers" [value]="number">
+                  {{number}} {{HOTEL_PLANNING_MESSAGES?.ROOMS}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+
+        <div class="row center-xs">
+          <button
+            mat-raised-button
+            color="primary"
+            class="calculate-button"
+            [disabled]="hotelPriceCounterForm.invalid"
+            (click)="calculateHotelTotalPrice()">
+            {{HOTEL_PLANNING_MESSAGES.CALCULATE_BUTTON}}
+          </button>
+        </div>
+      </div>
+
+      <div class="col-xs-6 hotel-final-calculations">
+        <app-total-price-counter class="flight-final-details-element"
+                                 [totalPrice]="totalPrice"
+                                 [selectedItems]="selectedHotel"></app-total-price-counter>
+      </div>
+    </div>
+
+    <mat-divider class="city-description-text-divider"></mat-divider>
+    <p class="row center-xs"> {{HOTEL_PLANNING_MESSAGES.HERE_ARE_HOTELS_FOR_CITY}}</p>
+    <mat-divider class="city-description-text-divider"></mat-divider>
+
+    <div class="row center-xs recommended-hotels">
+      <app-hotel-card
+        *ngFor="let currentCityHotel of currentCityHotels"
+        [hotel]="currentCityHotel" class="hotel-card-wrapper"></app-hotel-card>
+    </div>
+  </div>
+</div>

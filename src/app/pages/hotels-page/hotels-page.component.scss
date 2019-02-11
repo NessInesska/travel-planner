@@ -1,0 +1,58 @@
+@import '~flexboxgrid';
+@import '../../styles/colors';
+
+:host {
+  .col-xs-12 {
+    margin-top: 0;
+  }
+
+  .city-description {
+    color: $white;
+    font-size: 40px;
+
+    .place-planning-costs-content {
+      font-size: 20px;
+      color: $black;
+
+      .mat-form-field {
+        padding: 0 20px;
+        width: 200px;
+        font-size: 17px;
+      }
+
+      .hotels-selector {
+        width: 450px;
+      }
+
+      .calculate-button {
+        width: 200px;
+        margin: 0 20px;
+
+        &:disabled {
+          background: $bg-login-gray;
+        }
+      }
+
+      .city-description-text-title {
+        font-size: 30px;
+        margin: 20px;
+      }
+
+      .city-description-text-divider {
+        margin: 20px 0;
+      }
+
+      .hotel-finder-wrapper {
+        margin-bottom: 50px;
+      }
+
+      .hotel-card-wrapper {
+        display: flex;
+      }
+
+      .total-card-wrapper {
+        width: 80%;
+      }
+    }
+  }
+}
